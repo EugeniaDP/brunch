@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <title>La Capital del Brunch | {% block title %}{% endblock %}</title>
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>La Capital del Brunch</h1>
+        <h2>Descubrí tu lugar para brunchear en Buenos Aires</h2>
+        <h2>{% block section_title %} {% endblock %}</h2>
+    </header>
+
+    <nav>
+        <a href="{% url 'index' %}" class="boton">Inicio</a>
+        <a href="{% url 'lugares' %}" class="boton">Lugares</a>
+        <a href="{% url 'socios' %}" class="boton">Soci@s</a>
+        <!--FALTA LINKEAR CON USUARIO, PERO DA ERROR POR EL PARÁMETRO nombre_usuario QUE NO ES ACCEDIDO-->
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Todos los derechos reservados</p>
+        <a href="http://facebook.com">Facebook</a>
+        <a href="http://instagram.com">Instagram</a>
+        <a href="http://twitter.com">X</a>
+    </footer>
+</body>
+</html>

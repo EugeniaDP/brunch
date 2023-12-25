@@ -1,0 +1,50 @@
+header {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(174, 172, 172);
+}
+
+body {
+    background-color: rgb(231, 228, 228);
+}
+
+nav {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(99, 99, 152);
+}
+
+.boton{
+    margin-right: 10px;
+    border: 10px tomato;
+    font-size: 20px;
+    background-color: burlywood;
+    text-align: center;
+}
+.boton:hover {
+    font-size: 23px;
+}
+
+.filtros {
+    margin: 10px;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+.container {
+    background-color: antiquewhite;
+}
+
+.container .row > div {
+    background-color: bisque;
+    text-align: center;
+}
+
+footer {
+    margin: 10px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    background-color: burlywood;
+    text-align: center;
+}

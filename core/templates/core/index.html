@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block head %}{% endblock %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+
+<body>
+
+    {% if esta_logueado %}
+        <p>Ud. inició sesión como</p>
+    {% else %}
+        <p>Iniciá sesión o registrate</p>
+    {% endif %}
+
+</body>
+
+{% endblock %}
