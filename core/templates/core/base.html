@@ -15,6 +15,14 @@
         <h1>La Capital del Brunch</h1>
         <h2>Descubrí tu lugar para brunchear en Buenos Aires</h2>
         <h2>{% block section_title %} {% endblock %}</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
     </header>
 
     <nav>

@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
+from django.contrib import messages
+from .forms import AsociateForm
+from .models import Usuario
 
 # Create your views here.
 
@@ -20,6 +24,26 @@ def usuario(request, nombre_usuario):
         'nombre_usuario': 'Eugenia'
     }
     return render(request, "core/usuario.html", context)
+
+def asociate(request):
+    if request.method == "POST":
+        formulario = AsociateForm(request.POST)
+
+        if formulario.is_valid():
+            messages.info(request, "Formulario enviado con éxito")
+
+            u1 = Usuario(nombre="Primer", apellido="Usuario")
+            u1.save()
+
+            return redirect(reverse("index"))
+
+    else:
+        formulario = AsociateForm()
+
+    context = {
+        "asociate_form": formulario
+    }
+    return render(request, "core/asociate.html", context)
 
 def lugar_detalle(request, id):
     return HttpResponse(f"Todo sobre el sitio N° {id}")
