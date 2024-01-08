@@ -17,7 +17,11 @@ def lugares(request):
     return render(request, "core/lugares.html")
 
 def socios(request):
-    return render(request, "core/socios.html")
+    listado = Usuario.objects.all()
+    context = {
+        'listado': listado,
+    }
+    return render(request, "core/socios.html", context)
 
 def usuario(request, nombre_usuario):
     context = {
@@ -32,7 +36,11 @@ def asociate(request):
         if formulario.is_valid():
             messages.info(request, "Formulario enviado con éxito")
 
-            u1 = Usuario(nombre="Primer", apellido="Usuario")
+            u1 = Usuario(nombre = formulario.cleaned_data['nombre'],
+                         apellido = formulario.cleaned_data['apellido'],
+                         edad = formulario.cleaned_data['edad'],
+                         mail = formulario.cleaned_data['mail'],
+                         celular = formulario.cleaned_data['celular'])
             u1.save()
 
             return redirect(reverse("index"))
@@ -44,6 +52,7 @@ def asociate(request):
         "asociate_form": formulario
     }
     return render(request, "core/asociate.html", context)
+
 
 def lugar_detalle(request, id):
     return HttpResponse(f"Todo sobre el sitio N° {id}")

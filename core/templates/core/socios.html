@@ -6,4 +6,10 @@
     <h1>Nuestra comunidad de soci@s</h1>
     <h2>Asociate a La Capital del Brunch y obtené descuentos en los locales adheridos</h2>
     <a href="{% url 'asociate' %}" class="boton">Asociate</a>
+    <h2>Ya son soci@s:</h2>
+    <p>
+        {% for usuario in listado %}
+            {{ usuario.nombre }} {{ usuario.apellido }} <br>
+        {% endfor %}
+    </p>
 {% endblock %}
